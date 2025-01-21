@@ -128,6 +128,7 @@ struct MainView: View {
                     .foregroundColor(Color(.blue))
             }
             Image("sale")
+            Spacer()
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden()

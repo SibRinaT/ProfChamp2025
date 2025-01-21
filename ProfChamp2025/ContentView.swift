@@ -36,8 +36,6 @@ struct ContentView: View {
                 }
             }
                 NavigationLink(destination: (TabBar())){
-                    Button(action:{
-                    }){
                         RoundedRectangle(cornerRadius: 20)
                             .overlay(
                                 Text("Войти")
@@ -45,7 +43,6 @@ struct ContentView: View {
                             )
                             .foregroundColor(Color("blue"))
                             .frame(height: 60)
-                    }
                 }
                                }
             .padding(.top, 100)

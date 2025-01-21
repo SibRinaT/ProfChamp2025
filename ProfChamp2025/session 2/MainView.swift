@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var text: String = ""
-    let placeholder: String
+    let placeholder: String = ""
 
     var body: some View {
         VStack {
@@ -78,7 +78,25 @@ struct MainView: View {
                             .cornerRadius(16)
                             .frame(width: 108, height: 50)                .foregroundColor(.white)
                             .overlay(
-                                Text("Все")
+                                Text("Running")
+                            )
+                        Rectangle()
+                            .cornerRadius(16)
+                            .frame(width: 108, height: 50)                .foregroundColor(.white)
+                            .overlay(
+                                Text("Running")
+                            )
+                        Rectangle()
+                            .cornerRadius(16)
+                            .frame(width: 108, height: 50)                .foregroundColor(.white)
+                            .overlay(
+                                Text("Running")
+                            )
+                        Rectangle()
+                            .cornerRadius(16)
+                            .frame(width: 108, height: 50)                .foregroundColor(.white)
+                            .overlay(
+                                Text("Running")
                             )
                     }
                     .shadow(color: Color.black.opacity(0.1), radius: 3)
@@ -112,9 +130,10 @@ struct MainView: View {
             Image("sale")
         }
         .padding(.horizontal)
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    MainView(placeholder: "")
+    MainView()
 }

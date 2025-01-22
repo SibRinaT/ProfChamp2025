@@ -48,7 +48,7 @@ struct SignInView: View {
             .padding(.top, 100)
             Spacer()
             
-            Button(action:{}) {
+            NavigationLink(destination: SignUpView()) {
                 Text("Вы впервые? Создать пользователя")
                     .foregroundColor(.black)
             }

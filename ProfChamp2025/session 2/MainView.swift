@@ -111,13 +111,19 @@ struct MainView: View {
                 Text("Все")
                     .foregroundColor(Color(.blue))
             }
-            
             HStack {
                 Rectangle()
-                    .frame(width: 160, height: 180)
                     .foregroundColor(.white)
-                    .shadow(color: Color.black.opacity(0.1), radius: 3)
                     .cornerRadius(16)
+                    .frame(width: 160, height: 170)
+                    .foregroundColor(.white)
+                    .shadow(color: Color.black.opacity(0.2), radius: 3)
+                Rectangle()
+                    .foregroundColor(.white)
+                    .cornerRadius(16)
+                    .frame(width: 160, height: 170)
+                    .foregroundColor(.white)
+                    .shadow(color: Color.black.opacity(0.2), radius: 3)
             }
             
             HStack {

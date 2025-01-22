@@ -11,11 +11,13 @@ struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var name = ""
+    @StateObject private var viewModel = AuthViewModel()
+    @State var shouldPresentSheet = false
 
 
     var body: some View {
+        VStack {
             VStack {
-                VStack {
                 Text("Регистрация")
                     .bold()
                     .font(.title)
@@ -25,8 +27,13 @@ struct SignUpView: View {
                     .foregroundColor(Color("textDark"))
                 VStack {
                     InputTextField(title: "Ваше имя", placeholder: "xxxxxxxx", text: $name)
-                    InputTextField(title: "Email", placeholder: "xyz@gmail.com", text: $email)
-                    PasswordField(title: "Пароль", placeholder: "*****", text: $password)
+                    InputTextField(title: "Email", placeholder: "xyz@gmail.com", text:  $viewModel.email)
+                    PasswordField(title: "Пароль", placeholder: "*****", text:  $viewModel.password)
+                }
+                if let errorMessage = viewModel.errorMessage {
+                            Text(errorMessage)
+                                .foregroundColor(.red)
+                                .font(.caption)
                 }
                 HStack {
                     Button(action:{}) {
@@ -38,28 +45,36 @@ struct SignUpView: View {
                     }
                     Spacer()
                 }
-                    NavigationLink(destination: (TabBar())){
-                            RoundedRectangle(cornerRadius: 20)
-                                .overlay(
-                                    Text("Войти")
-                                        .foregroundColor(.white)
-                                )
-                                .foregroundColor(Color("blue"))
-                                .frame(height: 60)
-                    }
-                                   }
-                .padding(.top, 100)
-                Spacer()
-                
-                Button(action:{}) {
-                    Text("Есть аккаунт? Войти")
-                        .foregroundColor(.black)
-                }
+                Button(action: {
+                               Task {
+                                   await viewModel.registerUser()                                                                   
+                               }
+                           }) {
+                               Text("Регистрация")
+                                   .foregroundColor(.white)
+                                   .padding()
+                                   .frame(width: 350,height: 60)
+                                   .background(Color("blue"))
+                                   .cornerRadius(10)
+                           }
+                if viewModel.isRegistered {
+                                MainView()
+                            }
             }
-            .padding(.horizontal)
+            .padding(.top, 100)
+            Spacer()
+
+            NavigationLink(destination: SignInView()) {
+                Text("Есть аккаунт? Войти")
+                    .foregroundColor(.black)
+            }
         }
+        .padding(.horizontal)
+    }
 }
 
 #Preview {
-    SignUpView()
+    NavigationStack {
+        SignUpView()
+    }
 }

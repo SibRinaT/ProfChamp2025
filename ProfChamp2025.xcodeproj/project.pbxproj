@@ -12,6 +12,7 @@
 		2E4D0EB92D3F64F60015CB5A /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4D0EB82D3F64F60015CB5A /* PostgREST */; };
 		2E4D0EBB2D3F64F60015CB5A /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4D0EBA2D3F64F60015CB5A /* Realtime */; };
 		2E4D0EBD2D3F64F60015CB5A /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4D0EBC2D3F64F60015CB5A /* Storage */; };
+		2E4D0ECA2D3F6EFC0015CB5A /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4D0EC92D3F6EFC0015CB5A /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +38,22 @@
 		2EA09B8D2D3B710B0090F464 /* ProfChamp2025UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProfChamp2025UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2E4D0EC72D3F6CF70015CB5A /* Exceptions for "ProfChamp2025" folder in "ProfChamp2025" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2EA09B722D3B71090090F464 /* ProfChamp2025 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2EA09B752D3B71090090F464 /* ProfChamp2025 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2E4D0EC72D3F6CF70015CB5A /* Exceptions for "ProfChamp2025" folder in "ProfChamp2025" target */,
+			);
 			path = ProfChamp2025;
 			sourceTree = "<group>";
 		};
@@ -62,6 +76,7 @@
 			files = (
 				2E4D0EB92D3F64F60015CB5A /* PostgREST in Frameworks */,
 				2E4D0EB72D3F64F60015CB5A /* Functions in Frameworks */,
+				2E4D0ECA2D3F6EFC0015CB5A /* Supabase in Frameworks */,
 				2E4D0EB52D3F64F60015CB5A /* Auth in Frameworks */,
 				2E4D0EBD2D3F64F60015CB5A /* Storage in Frameworks */,
 				2E4D0EBB2D3F64F60015CB5A /* Realtime in Frameworks */,
@@ -85,12 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E4D0EC82D3F6EFC0015CB5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2EA09B6A2D3B71090090F464 = {
 			isa = PBXGroup;
 			children = (
 				2EA09B752D3B71090090F464 /* ProfChamp2025 */,
 				2EA09B862D3B710B0090F464 /* ProfChamp2025Tests */,
 				2EA09B902D3B710B0090F464 /* ProfChamp2025UITests */,
+				2E4D0EC82D3F6EFC0015CB5A /* Frameworks */,
 				2EA09B742D3B71090090F464 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,6 +153,7 @@
 				2E4D0EB82D3F64F60015CB5A /* PostgREST */,
 				2E4D0EBA2D3F64F60015CB5A /* Realtime */,
 				2E4D0EBC2D3F64F60015CB5A /* Storage */,
+				2E4D0EC92D3F6EFC0015CB5A /* Supabase */,
 			);
 			productName = ProfChamp2025;
 			productReference = 2EA09B732D3B71090090F464 /* ProfChamp2025.app */;
@@ -419,6 +443,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ProfChamp2025/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProfChamp2025/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,6 +472,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ProfChamp2025/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProfChamp2025/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -610,6 +636,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2E4D0EB32D3F64F60015CB5A /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Storage;
+		};
+		2E4D0EC92D3F6EFC0015CB5A /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E4D0EB32D3F64F60015CB5A /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

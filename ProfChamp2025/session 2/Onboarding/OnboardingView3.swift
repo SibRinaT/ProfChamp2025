@@ -26,7 +26,7 @@ struct OnboardingView3: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("subColor"))
                 Spacer()
-                NavigationLink(destination: MainView()) {
+                NavigationLink(destination: SignUpView()) {
                         RoundedRectangle(cornerRadius: 16)
                             .overlay(
                                 Text("Далее")

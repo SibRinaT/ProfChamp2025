@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State private var email = ""
-    @State private var password = ""
     @State private var name = ""
     @StateObject private var viewModel = AuthViewModel()
     @State var shouldPresentSheet = false
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
 
 
     var body: some View {
@@ -31,9 +31,9 @@ struct SignUpView: View {
                     PasswordField(title: "Пароль", placeholder: "*****", text:  $viewModel.password)
                 }
                 if let errorMessage = viewModel.errorMessage {
-                            Text(errorMessage)
-                                .foregroundColor(.red)
-                                .font(.caption)
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
                 HStack {
                     Button(action:{}) {
@@ -46,19 +46,33 @@ struct SignUpView: View {
                     Spacer()
                 }
                 Button(action: {
-                               Task {
-                                   await viewModel.registerUser()                                                                   
-                               }
-                           }) {
-                               Text("Регистрация")
-                                   .foregroundColor(.white)
-                                   .padding()
-                                   .frame(width: 350,height: 60)
-                                   .background(Color("blue"))
-                                   .cornerRadius(10)
-                           }
-                if viewModel.isRegistered {
-                                MainView()
+                                if viewModel.email.isEmpty && viewModel.password.isEmpty {
+                                    alertMessage = "Поле email и пароль не заполнено"
+                                    showAlert = true
+                                } else if viewModel.email.isEmpty {
+                                    alertMessage = "Поле email не заполнено"
+                                    showAlert = true
+                                } else if viewModel.password.isEmpty {
+                                    alertMessage = "Поле пароль не заполнено"
+                                    showAlert = true
+                                } else {
+                                    Task {
+                                        await viewModel.registerUser()
+                                    }
+                                }
+                            }) {
+                                Text("Регистрация")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: 350, height: 60)
+                                    .background(Color("blue"))
+                                    .cornerRadius(10)
+                            }
+
+                            if viewModel.isRegistered {
+                                NavigationLink(destination: MainView(), isActive: $viewModel.isRegistered) {
+                                    EmptyView()
+                                }
                             }
             }
             .padding(.top, 100)
@@ -70,6 +84,13 @@ struct SignUpView: View {
             }
         }
         .padding(.horizontal)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                            title: Text("Ошибка"),
+                            message: Text(alertMessage),
+                            dismissButton: .default(Text("OK"))
+                        )
+        }
     }
 }
 

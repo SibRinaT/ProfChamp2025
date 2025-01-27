@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LengthView: View {
     @State private var text: String = ""
     private let maxLength: Int = 10 // Максимальное количество символов
 
@@ -30,8 +30,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    LengthView()
 }
+

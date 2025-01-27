@@ -30,7 +30,7 @@ struct SignUpView: View {
                     InputTextField(title: "Email", placeholder: "xyz@gmail.com", text:  $viewModel.email)
                     PasswordField(title: "Пароль", placeholder: "*****", text:  $viewModel.password)
                 }
-                if let errorMessage = viewModel.errorMessage {
+                if let errorMessage = viewModel.errorMessage { // проверка на ошибку в вводе емаил
                     Text(errorMessage)
                         .foregroundColor(.red)
                         .font(.caption)
@@ -45,7 +45,7 @@ struct SignUpView: View {
                     }
                     Spacer()
                 }
-                Button(action: {
+                Button(action: { //кнопка для перехода
                                 if viewModel.email.isEmpty && viewModel.password.isEmpty {
                                     alertMessage = "Поле email и пароль не заполнено"
                                     showAlert = true

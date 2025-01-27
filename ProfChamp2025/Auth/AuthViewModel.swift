@@ -17,7 +17,7 @@ class AuthViewModel: ObservableObject {
         do {
             let session = try await SupabaseManager.shared.client.auth
                 .signUp(email: email, password: password)
-            
+
             // Регистрация успешна
             DispatchQueue.main.async {
                 self.isRegistered = true

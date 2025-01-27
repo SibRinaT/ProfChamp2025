@@ -19,3 +19,15 @@ final class SupabaseManager {
         SupabaseClient(supabaseURL: supabaseURL, supabaseKey: supabaseKey)
     }()
 }
+
+//private final class SupabaseManager {
+//    static let shared = SupabaseManager()
+//    
+//    private let supabaseURL = URL(string: "https://xyzcompany.supabase.co")!
+//    private let supabaseKey = "public-anon-key"
+//    
+//    lazy var client: SupabaseClient = {
+//        SupabaseClient(supabaseURL: supabaseURL, supabaseKey: supabaseKey)
+//    }()
+//}
+//   

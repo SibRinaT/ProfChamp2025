@@ -13,7 +13,7 @@ struct SignUpView: View {
     @State var shouldPresentSheet = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
-
+    private let minLength: Int = 6
 
     var body: some View {
         VStack {
@@ -52,8 +52,8 @@ struct SignUpView: View {
                                 } else if viewModel.email.isEmpty {
                                     alertMessage = "Поле email не заполнено"
                                     showAlert = true
-                                } else if viewModel.password.isEmpty {
-                                    alertMessage = "Поле пароль не заполнено"
+                                } else if viewModel.password.count < 8 {
+                                    alertMessage = "Пароль должен состоять из 8 символов или больше "
                                     showAlert = true
                                 } else {
                                     Task {
